@@ -13,17 +13,24 @@
             </h1>
 
             <?php
-                $sql = "SELECT * FROM  users WHERE id=1";
-                $result = $database->query($sql);
-                $user_found = mysqli_fetch_array($result);
+                $result_set = User::find_all_users();
 
-                echo $user_found['username'];
+                while ($row = mysqli_fetch_array($result_set)) {
+                    echo $row['username'] . "<br>";
+                }
+
+//                $sql = "SELECT * FROM  users WHERE id=1";
+//                $result = $database->query($sql);
+//                $user_found = mysqli_fetch_array($result);
+//
+//                echo $user_found['username'];
 
             ?>
 
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>
+                    <a href="index.html">Dashboard</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i> Blank Page
