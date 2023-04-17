@@ -19,6 +19,10 @@
                     echo $row['username'] . "<br>";
                 }
 
+                $found_user = User::find_user_by_id(1);
+                echo $found_user['username'];
+//                var_dump(User::find_user_by_id(1));
+
 //                $sql = "SELECT * FROM  users WHERE id=1";
 //                $result = $database->query($sql);
 //                $user_found = mysqli_fetch_array($result);
