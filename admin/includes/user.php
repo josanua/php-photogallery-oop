@@ -25,4 +25,17 @@ class User {
 
         return $result_set;
     }
+
+    private static function instantiation() {
+
+        $the_object = new self;
+
+        $user->id           = $found_user['id'];
+        $user->username     = $found_user['username'];
+        $user->password     = $found_user['password'];
+        $user->first_name   = $found_user['first_name'];
+        $user->last_name    = $found_user['last_name'];
+
+        return $the_object;
+    }
 }
