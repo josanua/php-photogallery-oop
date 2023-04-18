@@ -1,3 +1,10 @@
+# system
 .idea
+.DS_Store
+
+# project
 car_pictures.zip
 car_pictures
+vendor
+.env
+composer.lock

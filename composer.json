@@ -1,0 +1,13 @@
+{
+    "name": "vendor_name/php_photogallery_oop",
+    "description": "Learning purposes",
+    "authors": [
+        {
+            "name": "Josanu Andrei",
+            "email": "josanumail@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
