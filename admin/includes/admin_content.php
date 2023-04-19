@@ -15,26 +15,31 @@
             <?php
 //                $result_set = User::find_all_users();
 //
+//                var_dump($result_set);
+//
 //                while ($row = mysqli_fetch_array($result_set)) {
 //                    echo $row['username'] . "<br>";
 //                }
 
-                $found_user = User::find_user_by_id(2);
-
-                $user = new User();
-
-                echo $user->id;
-
-//                echo $found_user['username'];
+//                $found_user = User::find_user_by_id(2);
+//                $user = User::instantiation($found_user);
+//
+//                  echo $user->id;
+////                    echo $found_user['username'];
+//
+//                echo "<br>";
+//
 
 //                var_dump(User::find_user_by_id(1));
 
-//                $sql = "SELECT * FROM  users WHERE id=1";
-//                $result = $database->query($sql);
-//                $user_found = mysqli_fetch_array($result);
+//                    $users = User::find_all_users();
 //
-//                echo $user_found['username'];
+//                    foreach ($users as $user) {
+//                        echo $user->username . "<br>";
+//                    }
 
+                     $found_user = User::find_user_by_id(2);
+                     echo $found_user->username;
             ?>
 
             <ol class="breadcrumb">

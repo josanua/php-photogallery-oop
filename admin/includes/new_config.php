@@ -25,5 +25,5 @@ define("DB_NAME", $_ENV['DB_NAME']);
 //const DB_PASS = $_ENV['DB_PASS'];
 //const DB_NAME = $_ENV['DB_NAME'];
 
-//$connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-//if ($connection) {echo "DB Connection true";}
+$connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+if ($connection) {echo "DB Connection true";}
