@@ -1,12 +1,19 @@
 <?php
 
-function _autoload($class) {
+/**
+ * Do scanning of folder for identifying existing classes files.
+ * @param $class
+ * @return void
+ */
+function classAutoLoader($class) {
     $class = strtolower($class);
     $the_path = "includes/{$class}.php";
-
+echo $the_path;
     if(file_exists($the_path)) {
         require_once $the_path;
     } else {
         die ("This file name {$class}.php was not found man...");
     }
 }
+
+spl_autoload_register('classAutoLoader');
