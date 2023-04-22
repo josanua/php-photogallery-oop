@@ -8,3 +8,4 @@ car_pictures
 vendor
 .env
 composer.lock
+php_tests.php
