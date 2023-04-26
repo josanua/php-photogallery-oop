@@ -39,7 +39,17 @@
 //                    }
 
                      $found_user = User::find_user_by_id(2);
-                     echo $found_user->username;
+                     echo $found_user->username . "<br>";
+
+                     $user = new User();
+
+//                    echo get_class($user);
+//                    $all_declared_classes = get_declared_classes();
+//
+//                    foreach ($all_declared_classes as $classes) {
+//                        echo $classes . "<br>";
+//                    }
+
             ?>
 
             <ol class="breadcrumb">
