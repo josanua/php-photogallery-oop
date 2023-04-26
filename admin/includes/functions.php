@@ -8,11 +8,13 @@
 function classAutoLoader($class) {
     $class = strtolower($class);
     $the_path = "includes/{$class}.php";
-echo $the_path;
+
+    echo $the_path;
+
     if(file_exists($the_path)) {
         require_once $the_path;
     } else {
-        die ("This file name {$class}.php was not found man...");
+        die ("This file name {$class}.php was not found!");
     }
 }
 
