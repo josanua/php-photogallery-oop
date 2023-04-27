@@ -9,3 +9,4 @@ vendor
 .env
 composer.lock
 testing_php.php
+/php_tests.php
