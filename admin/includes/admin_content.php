@@ -1,5 +1,5 @@
 <?php
-//var_dump(DB_HOST);
+
 ?>
 
 <div class="container-fluid">
@@ -21,9 +21,10 @@
 
                 $found_user = User::find_user_by_id(2);
 
-                $user = new User();
+                $user = User::instantiation($found_user);
 
-                echo $user->id;
+            var_dump($user);
+//                echo $user->id;
 
 //                echo $found_user['username'];
 
