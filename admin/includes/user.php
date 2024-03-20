@@ -9,17 +9,17 @@ class User {
     public $last_name;
 
     public static function find_all_users() {
-        return self::find_this_query("SELECT * FROM users");
+        return self::use_this_query("SELECT * FROM users");
     }
 
     public static function find_user_by_id($user_id) {
-        $result_set = self::find_this_query("SELECT * FROM users WHERE id= $user_id LIMIT 1");
+        $result_set = self::use_this_query("SELECT * FROM users WHERE id= $user_id LIMIT 1");
         $found_user = mysqli_fetch_array($result_set);
 
         return $found_user;
     }
 
-    public static function find_this_query($sql) {
+    public static function use_this_query($sql) {
         global $database;
         $result_set = $database->query($sql);
 

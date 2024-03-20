@@ -35,6 +35,23 @@
                 </div>
             </div>
             <!-- /.row -->
+            <?php
+
+            // testing connection database class
+            // print_r(mysqli_fetch_array($database->query("SELECT * FROM `users` WHERE id = 1")));
+
+            // testing User class
+//            $user = new User();
+//            $user = User::find_all_users();
+
+                $foundUser = User::find_user_by_id(2);
+                var_dump($foundUser);
+//            var_dump(mysqli_fetch_array($user));
+//            var_dump(mysqli_fetch_array($user));
+//            var_dump(mysqli_fetch_array($user));
+
+            // print_r($user);
+            ?>
 
         </div>
         <!-- /.container-fluid -->
