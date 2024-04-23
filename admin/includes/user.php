@@ -9,21 +9,21 @@ class User {
     public $last_name;
 
     public static function find_all_users() {
-        return self::use_this_query("SELECT * FROM users");
+        global $database;
+
+        return self::find_this_query("SELECT * FROM users");
     }
 
     public static function find_user_by_id($user_id) {
         $result_set = self::use_this_query("SELECT * FROM users WHERE id= $user_id LIMIT 1");
-        $found_user = mysqli_fetch_array($result_set);
 
-        return $found_user;
+        return mysqli_fetch_array($result_set);
     }
 
     public static function use_this_query($sql) {
         global $database;
-        $result_set = $database->query($sql);
 
-        return $result_set;
+        return $database->query($sql);
     }
 
     public static function find_this_query($sql) {
@@ -51,7 +51,7 @@ class User {
 
         foreach ($the_record as $the_attribute => $value) {
             if($the_object->has_the_attribute($the_attribute)){
-                $the_object->the_attribute = $value;
+                $the_object->$the_attribute = $value;
             }
         }
 
