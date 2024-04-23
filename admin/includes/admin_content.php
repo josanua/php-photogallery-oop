@@ -13,17 +13,17 @@
             </h1>
 
             <?php
-//                $result_set = User::find_all_users();
+                $result_set = User::find_all_users();
+
+                while ($row = mysqli_fetch_array($result_set)) {
+                    echo $row['username'] . "<br>";
+                }
+
+//                $found_user = User::find_user_by_id(2);
 //
-//                while ($row = mysqli_fetch_array($result_set)) {
-//                    echo $row['username'] . "<br>";
-//                }
-
-                $found_user = User::find_user_by_id(2);
-
-                $user = User::instantiation($found_user);
-
-            var_dump($user);
+//                $user = User::instantiation($found_user);
+//
+//                var_dump($user);
 //                echo $user->id;
 
 //                echo $found_user['username'];
@@ -35,7 +35,6 @@
 //                $user_found = mysqli_fetch_array($result);
 //
 //                echo $user_found['username'];
-
             ?>
 
             <ol class="breadcrumb">
