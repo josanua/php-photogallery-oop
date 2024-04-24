@@ -9,8 +9,6 @@ class User {
     public $last_name;
 
     public static function find_all_users() {
-        global $database;
-
         return self::find_this_query("SELECT * FROM users");
     }
 
