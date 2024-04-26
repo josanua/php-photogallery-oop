@@ -1,6 +1,6 @@
 <?php
 
-function __autoload($class)
+function autoLoaderClass($class)
 {
     $class = strtolower($class);
     $the_path = "includes/{$class}.php";
@@ -8,6 +8,8 @@ function __autoload($class)
     if (file_exists($the_path)) {
         require_once $the_path;
     } else {
-        die("Filename " . $the_path . " is missing.");
+        die("Filename  {$the_path}.php  was not found.");
     }
 }
+
+spl_autoload_register('autoLoaderClass');
