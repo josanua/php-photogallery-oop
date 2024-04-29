@@ -1,6 +1,6 @@
 <?php
 
-require_once 'init.php';
+require_once 'includes/init.php';
 
 if ($session->is_signed_in()) {
     redirect("admin.php");
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 ?>
 <!-- login form -->
 <div class="col-md-4 col-md-offset-3">
-    <h4 class="bg-danger"><?php echo $the_message; ?></h4>
+    <h4 class="bg-danger"><?php //echo $the_message; ?></h4>
 
     <form id="login-id" action="" method="post">
         <div class="form-group">
