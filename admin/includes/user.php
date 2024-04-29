@@ -1,6 +1,7 @@
 <?php
 
-class User {
+class User
+{
 
     public $id;
     public $username;
@@ -8,23 +9,27 @@ class User {
     public $first_name;
     public $last_name;
 
-    public static function find_all_users() {
+    public static function find_all_users()
+    {
         return self::find_this_query("SELECT * FROM users");
     }
 
-    public static function find_user_by_id($user_id) {
+    public static function find_user_by_id($user_id)
+    {
         $the_result_array = self::find_this_query("SELECT * FROM users WHERE id= $user_id LIMIT 1");
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
 
-    public static function use_this_query($sql) {
+    public static function use_this_query($sql)
+    {
         global $database;
 
         return $database->query($sql);
     }
 
-    public static function find_this_query($sql) {
+    public static function find_this_query($sql)
+    {
         global $database;
 
         $result_set = $database->query($sql);
@@ -37,7 +42,8 @@ class User {
         return $the_object_array;
     }
 
-    public static function verify_user($role) {
+    public static function verify_user($role)
+    {
         global $database;
 
         $username = $database->escape_string($username);
@@ -49,7 +55,8 @@ class User {
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
 
-    public static function instantiation($the_record) {
+    public static function instantiation($the_record)
+    {
 
         $the_object = new self;
 
@@ -60,7 +67,7 @@ class User {
 //        $the_object->last_name    = $found_user['last_name'];
 
         foreach ($the_record as $the_attribute => $value) {
-            if($the_object->has_the_attribute($the_attribute)){
+            if ($the_object->has_the_attribute($the_attribute)) {
                 $the_object->$the_attribute = $value;
             }
         }
@@ -68,9 +75,32 @@ class User {
         return $the_object;
     }
 
-    private function has_the_attribute($the_attribute) {
+    private function has_the_attribute($the_attribute)
+    {
         $object_properties = get_object_vars($this);
 
         return array_key_exists($the_attribute, $object_properties);
     }
 }
+
+?>
+<!-- login form -->
+<div class="col-md-4 col-md-offset-3">
+    <h4 class="bg-danger"><?php echo $the_message; ?></h4>
+    <form id="login-id" action="" method="post">
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" value="<?php echo htmlentities($username); ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
