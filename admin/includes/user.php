@@ -42,7 +42,7 @@ class User
         return $the_object_array;
     }
 
-    public static function verify_user($role)
+    public static function verify_user($username, $password)
     {
         global $database;
 
