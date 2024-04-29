@@ -2,8 +2,9 @@
 
 require_once 'includes/header.php';
 
+// redirect if is signed in
 if ($session->is_signed_in()) {
-    redirect("admin.php");
+    redirect("index.php");
 }
 
 if (isset($_POST['submit'])) {
@@ -43,5 +44,4 @@ if (isset($_POST['submit'])) {
             <input type="submit" name="submit" value="Submit" class="btn btn-primary">
         </div>
     </form>
-
 </div>
