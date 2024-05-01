@@ -19,8 +19,15 @@
 //                    echo $row['username'] . "<br>";
 //                }
 
-                    $user_class = new User();
-                    var_dump($user_class->create('josanu', '1234', 'Josanun', 'Andrei'));
+                    $user = new User();
+
+                    $user->username = "Username";
+                    $user->password = "Password";
+                    $user->first_name = "First Name";
+                    $user->last_name = "Last Name";
+
+
+                    var_dump($user->create());
 
 //                     $found_user = User::find_user_by_id(1);
 //                    echo $found_user->username;

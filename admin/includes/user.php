@@ -81,14 +81,9 @@ class User
         return array_key_exists($the_attribute, $object_properties);
     }
 
-    public function create($username, $password, $first_name, $last_name)
+    public function create()
     {
         global $database;
-
-        $this->username = $username;
-        $this->password = $password;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
 
         $sql = "INSERT INTO users (username, password, first_name, last_name)";
         $sql .= "VALUES ('";
@@ -99,7 +94,6 @@ class User
 
         if($database->query($sql)){
             $this->id = $database->insert_id();
-
             return true;
         } else {
             return false;
