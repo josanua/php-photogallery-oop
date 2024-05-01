@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 } else {
     $username = "";
     $password = "";
-    $the_message= "";
+    $the_message = "";
 }
 ?>
 <!-- login form -->
