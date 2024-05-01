@@ -19,8 +19,11 @@
 //                    echo $row['username'] . "<br>";
 //                }
 
-                     $found_user = User::find_user_by_id(1);
-                    echo $found_user->username;
+                    $user_class = new User();
+                    var_dump($user_class->create('josanu', '1234', 'Josanun', 'Andrei'));
+
+//                     $found_user = User::find_user_by_id(1);
+//                    echo $found_user->username;
 //                    $pictures = new Picture();
 //
 //                $user = User::instantiation($found_user);
