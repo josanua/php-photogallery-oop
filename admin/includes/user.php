@@ -15,7 +15,7 @@ class User
 
     public static function find_user_by_id($user_id)
     {
-        $the_result_array = self::find_this_query("SELECT * FROM users WHERE id= $user_id LIMIT 1");
+        $the_result_array = self::find_this_query("SELECT * FROM users WHERE id = $user_id LIMIT 1");
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
@@ -98,5 +98,20 @@ class User
         } else {
             return false;
         }
+    }
+
+    public function update() {
+        global $database;
+
+        $sql = "UPDATE users SET ";
+        $sql .= "username= '" . $database->escape_string($this->username)    . "', ";
+        $sql .= "password= '" .$database->escape_string($this->password)     . "', ";
+        $sql .= "first_name= '" .$database->escape_string($this->first_name) . "', ";
+        $sql .= "last_name= '" .$database->escape_string($this->last_name)   . "' ";
+        $sql .= " WHERE id= " . $database->escape_string($this->id);
+
+        $database->query($sql);
+
+        return  (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 }
