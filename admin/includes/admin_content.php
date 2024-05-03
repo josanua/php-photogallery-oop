@@ -13,17 +13,21 @@
             </h1>
 
             <?php
-//                    $user = new User();
-                    $user = User::find_user_by_id(3);
-//                    var_dump($user);
-                    $user->username = "Shnobeli";
-                    $user->password = "1234";
-                    $user->last_name = "Williams";
-                    $user->first_name = "Konopit";
-//                    $user->id = 3;
+            //                    $user = new User();
+            $user = User::find_user_by_id(3);
 
-                    // $user->create();
-//                    $user->update();
+            var_dump($user);
+            //                    $user->username = "Shnobeli";
+            //                    $user->password = "1234";
+            //                    $user->last_name = "Williams";
+            //                    $user->first_name = "Konopit";
+            //                    $user->id = 3;
+
+            // $user->create();
+            //                    $user->update();
+            if ($user) {
+                $user->delete();
+            }
             ?>
 
             <ol class="breadcrumb">
