@@ -13,30 +13,28 @@
             </h1>
 
             <?php
-            //                    $user = new User();
-//            $user = User::find_user_by_id(3);
+            // $user = new User();
+            // $user = User::find_user_by_id(3);
 
-//            var_dump($user);
+            // var_dump($user);
             //                    $user->username = "Shnobeli";
             //                    $user->password = "1234";
             //                    $user->last_name = "Williams";
             //                    $user->first_name = "Konopit";
             //                    $user->id = 3;
 
-            // $user->create();
-            //                    $user->update();
 //            if ($user) {
 //                $user->delete();
 //            }
 
-//            $user = User::find_user_by_id(8);
+//            $user = User::find_user_by_id(9);
 //            var_dump($user);
 
-//            $user = new User(7);
-//            $user->username = 'User_8';
+//            $user = new User();
+//            $user->username = 'User_9';
 //                                $user->password = "1234";
-//                                $user->last_name = "Shtocker";
-//                                $user->first_name = "Milacio";
+//                                $user->last_name = "Shmocker";
+//                                $user->first_name = "Micacio";
 //            $user->save();
             ?>
 

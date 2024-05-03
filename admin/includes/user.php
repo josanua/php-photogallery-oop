@@ -8,16 +8,16 @@ class User
     public $first_name;
     public $last_name;
 
-    private const DB_TABLE_NAME = "users";
+    private const DB_TABLE = "users";
 
     public static function find_all_users()
     {
-        return self::find_this_query("SELECT * FROM " . self::DB_TABLE_NAME );
+        return self::find_this_query("SELECT * FROM " . self::DB_TABLE );
     }
 
     public static function find_user_by_id($user_id)
     {
-        $the_result_array = self::find_this_query("SELECT * FROM " . self::DB_TABLE_NAME . " WHERE id = $user_id LIMIT 1");
+        $the_result_array = self::find_this_query("SELECT * FROM " . self::DB_TABLE . " WHERE id = $user_id LIMIT 1");
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
@@ -50,7 +50,7 @@ class User
         $username = $database->escape_string($username);
         $password = $database->escape_string($password);
 
-        $sql = "SELECT * FROM " . self::DB_TABLE_NAME . " WHERE username = '$username' and password = '$password' LIMIT 1";
+        $sql = "SELECT * FROM " . self::DB_TABLE . " WHERE username = '$username' and password = '$password' LIMIT 1";
 
         $the_result_array = self::find_this_query($sql);
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
@@ -87,7 +87,7 @@ class User
     {
         global $database;
 
-        $sql = "INSERT INTO " . self::DB_TABLE_NAME . " (username, password, first_name, last_name) ";
+        $sql = "INSERT INTO " . self::DB_TABLE . " (username, password, first_name, last_name) ";
         $sql .= "VALUES('";
         $sql .= $database->escape_string($this->username) . "', '";
         $sql .= $database->escape_string($this->password) . "', '";
@@ -113,7 +113,7 @@ class User
     {
         global $database;
 
-        $sql = "UPDATE " . self::DB_TABLE_NAME . " SET ";
+        $sql = "UPDATE " . self::DB_TABLE . " SET ";
         $sql .= "username = '" . $database->escape_string($this->username) . "', ";
         $sql .= "password = '" . $database->escape_string($this->password) . "', ";
         $sql .= "first_name = '" . $database->escape_string($this->first_name) . "', ";
@@ -129,7 +129,7 @@ class User
     {
         global $database;
 
-        $sql = "DELETE FROM " . self::DB_TABLE_NAME . " WHERE id = " . $database->escape_string($this->id);
+        $sql = "DELETE FROM " . self::DB_TABLE . " WHERE id = " . $database->escape_string($this->id);
         $database->query($sql);
 
         return true;
