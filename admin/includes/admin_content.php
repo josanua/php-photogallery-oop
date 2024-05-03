@@ -29,13 +29,15 @@
 //                $user->delete();
 //            }
 
-            $user = User::find_user_by_id(8);
+//            $user = User::find_user_by_id(8);
+//            var_dump($user);
+
 //            $user = new User(7);
-            $user->username = 'User_8';
-                                $user->password = "1234";
-                                $user->last_name = "Shtocker";
-                                $user->first_name = "Milacio";
-            $user->save();
+//            $user->username = 'User_8';
+//                                $user->password = "1234";
+//                                $user->last_name = "Shtocker";
+//                                $user->first_name = "Milacio";
+//            $user->save();
             ?>
 
             <ol class="breadcrumb">
