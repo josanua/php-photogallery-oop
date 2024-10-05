@@ -12,7 +12,7 @@ class User
 
     public static function find_all_users()
     {
-        return self::find_this_query("SELECT * FROM " . self::DB_TABLE );
+        return self::find_this_query("SELECT * FROM " . self::DB_TABLE);
     }
 
     public static function find_user_by_id($user_id)
@@ -87,12 +87,10 @@ class User
     {
         global $database;
 
-        $sql = "INSERT INTO " . self::DB_TABLE . " (username, password, first_name, last_name) ";
-        $sql .= "VALUES('";
-        $sql .= $database->escape_string($this->username) . "', '";
-        $sql .= $database->escape_string($this->password) . "', '";
-        $sql .= $database->escape_string($this->first_name) . "', '";
-        $sql .= $database->escape_string($this->last_name) . "')";
+        $properties = $this->properties();
+
+        $sql = "INSERT INTO " . self::DB_TABLE . "(" . implode(",", array_keys($properties)) . ")";
+        $sql .= "VALUES ('" . implode("', '", array_values($properties)) . "')";
 
         if ($database->query($sql)) {
             $this->id = $database->insert_id();
@@ -100,6 +98,11 @@ class User
         } else {
             return false;
         }
+    }
+
+    protected function properties()
+    {
+        return get_object_vars($this);
     }
 
     public function save()
